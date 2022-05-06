@@ -9,3 +9,12 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Ingredient {
+  id      Int @id @default(autoincrement()) @map("ID")
+  name    String @unique @map("NAME")
+  createdAt DateTime @default(now()) @map("CREATED_AT")
+  updatedAt DateTime @updatedAt @map("UPDATED_AT")
+
+  @@map("INGREDIENTS")
+}
