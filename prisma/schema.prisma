@@ -15,6 +15,27 @@ model Ingredient {
   name    String @unique @map("NAME")
   createdAt DateTime @default(now()) @map("CREATED_AT")
   updatedAt DateTime @updatedAt @map("UPDATED_AT")
+  iceScreamIngredients IceScreamIngredient[]
 
   @@map("INGREDIENTS")
+}
+
+model IceScream {
+  id     Int @id @default(autoincrement()) @map("ID")
+  name    String @unique @map("NAME")
+  createdAt DateTime @default(now()) @map("CREATED_AT")
+  updatedAt DateTime @updatedAt @map("UPDATED_AT")
+  iceScreamIngredients IceScreamIngredient[]
+
+  @@map("ICE_SCREAMS")
+}
+
+model IceScreamIngredient {
+  ingredientId Int @map("INGREDIENT_ID")
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  iceScreamId  Int @map("ICE_SCREAM_ID")
+  iceScream    IceScream @relation(fields: [iceScreamId], references: [id])
+
+  @@id([ingredientId, iceScreamId])
+  @@map("ICE_SCREAMS_INGREDIENTS")
 }
