@@ -92,4 +92,34 @@ export class IceScreamsService {
       ),
     }));
   }
+
+  async getById(id: number): Promise<IceScreamDto | null> {
+    const iceScream = await this.prismaService.iceScream.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        name: true,
+        iceScreamIngredients: {
+          select: {
+            ingredient: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    if (!iceScream) return null;
+    return {
+      id: iceScream.id,
+      name: iceScream.name,
+      ingredients: iceScream.iceScreamIngredients.map(
+        (item) => item.ingredient,
+      ),
+    };
+  }
 }

@@ -2,6 +2,8 @@ import {
   Body,
   Controller,
   Get,
+  NotFoundException,
+  Param,
   ParseIntPipe,
   Post,
   Query,
@@ -30,5 +32,14 @@ export class IceScreamsController {
       offset,
       limit,
     });
+  }
+
+  @Get('/:id')
+  async getById(@Param('id', ParseIntPipe) id: number): Promise<IceScreamDto> {
+    const iceScream = await this.iceScreamService.getById(id);
+    if (!iceScream)
+      throw new NotFoundException(`IceScream with id ${id} not found`);
+
+    return iceScream;
   }
 }
