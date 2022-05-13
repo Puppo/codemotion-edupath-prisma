@@ -18,3 +18,4 @@ Branches references:
 
 - [Prisma VsExtension](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
 - [Prisma Docs](https://prisma.io/docs)
+- [Postman Collection](./postman/Codemotion_EduPath_Prisma.postman_collection.json)

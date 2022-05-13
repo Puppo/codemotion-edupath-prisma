@@ -1,0 +1,134 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Codemotion EduPath Prisma",
+		"_postman_id": "edcd3c5f-cdb4-8557-0f3a-4c33a4cdfd09",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ingredients",
+			"description": "",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"url": "http://localhost:3000/ingredients",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Bacio\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IceScreams",
+			"description": "",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"url": "http://localhost:3000/ice-screams",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Nocciola\",\n\t\"ingredients\": [1, 6]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/ice-screams?offset=0&limit=10&terms=latte",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ice-screams"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "terms",
+									"value": "latte",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Cioccolato\",\n\t\"ingredients\": [1, 2]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET/:id",
+					"request": {
+						"url": "http://localhost:3000/ice-screams/5",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Cioccolato\",\n\t\"ingredients\": [1, 2]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
